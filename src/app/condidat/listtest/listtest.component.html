@@ -1,0 +1,35 @@
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-icon card-header-rose">
+        <div class="card-icon">
+          <i class="material-icons">assignment</i>
+        </div>
+        <h4 class="card-title ">List Test</h4>
+      </div>
+      <div class="card-body table-full-width table-hover">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="">
+              <th>
+                ID
+              </th>
+              <th>
+                Name test
+              </th>
+            </thead>
+            <tbody>
+              <tr routerLink="/condidat/passagetest/{{i}}" *ngFor="let test of tab; let i = index;" class="table-success">
+                <td>
+                  {{i+1}}
+                </td>
+                <td>
+                  {{test.testname}}
+                </td>
+               </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

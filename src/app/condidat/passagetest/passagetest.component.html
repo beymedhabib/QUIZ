@@ -1,0 +1,65 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="col-md-8 col-12 mr-auto ml-auto">
+        <!--      Wizard container        -->
+        <div class="wizard-container">
+          <div class="card card-wizard active" data-color="rose" id="wizardProfile">
+            <div action="#" method="" novalidate="novalidate">
+              <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+              <div class="card-header text-center">
+                    <div class="form-group">
+                      <label>TEST Name : {{f.testname}}</label>
+                  </div>
+              </div>
+              <div class="card-body">
+                    <div  class="row justify-content-center">
+                      <div class="col-sm-12">
+                        <h5 class="info-text"> Question {{i+1}}: {{f.question[i].questionname}}</h5>
+                        <mat-radio-group
+                        aria-labelledby="example-radio-group-label"
+                        class="example-radio-group"
+                        [(ngModel)]="option">
+                        <mat-radio-button class="example-radio-button" [value]="f.question[i].option1">{{f.question[i].option1}}</mat-radio-button>
+                        <mat-radio-button class="example-radio-button" [value]="f.question[i].option2">{{f.question[i].option2}}</mat-radio-button>
+                        <mat-radio-button class="example-radio-button" [value]="f.question[i].option3">{{f.question[i].option3}}</mat-radio-button>
+                        <mat-radio-button class="example-radio-button" [value]="f.question[i].option4">{{f.question[i].option4}}</mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                    </div>
+                  </div>
+              <div class="card-footer">
+                <div class="mr-auto" *ngIf="i < f.question.length -1 && f.question.length > 1 ">
+                  <input type="button" class="btn btn-next btn-fill btn-rose btn-wd" (click)="next()" name="next" value="Next">
+                </div>
+                <div class="mr-auto" *ngIf="i === f.question.length -1 || f.question.length === 1">
+                  <input type="button" class="btn btn-next btn-fill btn-rose btn-wd" data-toggle="modal" data-target="#myModal" (click)="finish()" name="next" value="Finished">
+                </div>
+                <div class="ml-auto" *ngIf="i > 0">
+                  <input type="button" (click)="previous()" class="btn btn-finish btn-fill btn-rose btn-wd" name="previous" value="Back" >
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- wizard container -->
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h1>tour result is <h2>{{j}}/{{f.question.length}}</h2> Question</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
